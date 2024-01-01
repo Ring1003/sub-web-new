@@ -428,8 +428,10 @@ export default {
       btnBoolean: false,
       options: {
         clientTypes: {
-          "Sing-Box": "singbox",
           Clash: "clash",
+          "Quantumult X": "quanx",
+          "自动判断客户端": "auto",
+          "Sing-Box": "singbox",
           Surge2: "surge&ver=2",
           Surge3: "surge&ver=3",
           Surge4: "surge&ver=4",
@@ -439,14 +441,13 @@ export default {
           "混合订阅（mixed）": "mixed",
           Surfboard: "surfboard",
           Quantumult: "quan",
-          "Quantumult X": "quanx",
           Loon: "loon",
           Mellow: "mellow",
           ClashR: "clashr",
           "Shadowsocks(SIP002)": "ss",
           "Shadowsocks Android(SIP008)": "sssub",
           ShadowsocksD: "ssd",
-          "自动判断客户端": "auto",
+
         },
         shortTypes: {
           "suo.yt": "https://suo.yt/short",
@@ -931,8 +932,8 @@ export default {
     this.isPC = this.$getOS().isPc;
   },
   mounted() {
-    //this.tanchuang();
-    this.form.clientType = "singbox";
+    //this.tanchuang(); //首次进入时的弹窗
+    this.form.clientType = "clash";
     this.getBackendVersion();
     this.anhei();
     let lightMedia = window.matchMedia('(prefers-color-scheme: light)');
