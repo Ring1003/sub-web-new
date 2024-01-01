@@ -30,5 +30,5 @@ services:
 
 访问地址举例:
 ```
-http://192.168.10.1:8090/?backend=https://v2api.z1.gs
+http://192.168.10.1:58080/?backend=https://v2api.z1.gs
 ```

@@ -459,8 +459,8 @@ export default {
         },
         customBackend: {
           "默认增强版":"/api",
-          "subconverter作者提供": "/subconverter",
-          "sub-web作者提供": "/apiwccbest",
+          "subconverter作者提供": "https://sub.xeton.dev",
+          "sub-web作者提供": "https://api.wcc.best",
           "sub作者&lhie1提供": "https://api.dler.io",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://api.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
@@ -470,8 +470,8 @@ export default {
         },
         backendOptions: [
           {value: "/api"},
-          {value: "/subconverter"},
-          {value: "/apiwccbest"},
+          {value: "https://sub.xeton.dev"},
+          {value: "https://api.wcc.best"},
           {value: "https://sub.d1.mk"},
           {value: "https://api.tsutsu.one"},
           {value: "https://www.nameless13.com"},
@@ -1027,7 +1027,7 @@ export default {
         return false;
       }
       let backend =
-          this.form.customBackend === ""
+          this.form.customBackend === "" || this.form.customBackend === "/api"
               ? defaultBackend
               : this.form.customBackend;
       let sourceSub = this.form.sourceSubUrl;
