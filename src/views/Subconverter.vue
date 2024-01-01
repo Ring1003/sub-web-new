@@ -457,9 +457,9 @@ export default {
 
         },
         customBackend: {
-          "默认增强版":"https://v2api.z1.gs",
-          "subconverter作者提供": "https://sub.xeton.dev",
-          "sub-web作者提供": "https://api.wcc.best",
+          "默认增强版":"/api",
+          "subconverter作者提供": "/subconverter",
+          "sub-web作者提供": "/apiwccbest",
           "sub作者&lhie1提供": "https://api.dler.io",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://api.v1.mk",
           "肥羊备用后端【vless reality+hy1+hy2】": "https://sub.d1.mk",
@@ -468,12 +468,12 @@ export default {
 
         },
         backendOptions: [
-          {value: "https://v2api.z1.gs"},
+          {value: "/api"},
+          {value: "/subconverter"},
+          {value: "/apiwccbest"},
           {value: "https://sub.d1.mk"},
           {value: "https://api.tsutsu.one"},
           {value: "https://www.nameless13.com"},
-          {value: "https://sub.xeton.dev"},
-          {value: "https://api.wcc.best"},
           {value: "https://api.dler.io"},
         ],
         remoteConfig: [
@@ -874,8 +874,8 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://v2api.z1.gs" : this.getUrlParam(),
-        shortType: "https://v1.mk/short",
+        customBackend: this.getUrlParam() == "" ? "/api" : this.getUrlParam(),
+        shortType: "https://suo.yt/short",
         remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
         excludeRemarks: "",
         includeRemarks: "",
@@ -1361,14 +1361,15 @@ export default {
               this.form.customBackend + "/version"
           )
           .then(res => {
+            debugger;
             this.backendVersion = res.data.replace(/backend\n$/gm, "");
             this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
-            let a = this.form.customBackend.indexOf("v2api.z1.gs") !== -1 || this.form.customBackend.indexOf("sub.d1.mk") !== -1;
+            let a = this.form.customBackend.indexOf("/api") !== -1;
             let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
-            a ? this.$message.success(`${this.backendVersion}` + "肥羊负载均衡增强版后端，已屏蔽免费节点池（会返回403），额外支持vless reality+hysteria+hysteria2订阅转换") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
+            a ? this.$message.success(`${this.backendVersion}` + "---官方增强版后端") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
           })
           .catch(() => {
-            this.$message.error("请求SubConverter版本号返回数据失败，该后端不可用！");
+            this.$message.error("请求SubConverter版本号返回数据失败，该后端可能不可用！");
           });
     }
   }
