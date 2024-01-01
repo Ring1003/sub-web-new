@@ -458,7 +458,7 @@ export default {
 
         },
         customBackend: {
-          "默认增强版":"https://v2api.z1.gs",
+          "默认增强版":"/api",
           "subconverter作者提供": "https://sub.xeton.dev",
           "sub-web作者提供": "https://api.wcc.best",
           "sub作者&lhie1提供": "https://api.dler.io",
@@ -469,7 +469,7 @@ export default {
 
         },
         backendOptions: [
-          {value: "https://v2api.z1.gs"},
+          {value: "/api"},
           {value: "https://sub.xeton.dev"},
           {value: "https://api.wcc.best"},
           {value: "https://sub.d1.mk"},
@@ -875,7 +875,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://v2api.z1.gs" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "/api" : this.getUrlParam(),
         shortType: "https://suo.yt/short",
         remoteConfig: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
         excludeRemarks: "",
@@ -1365,7 +1365,7 @@ export default {
             debugger;
             this.backendVersion = res.data.replace(/backend\n$/gm, "");
             this.backendVersion = this.backendVersion.replace("subconverter", "SubConverter");
-            let a = this.form.customBackend.indexOf("v2api.z1.gs") !== -1;
+            let a = this.form.customBackend.indexOf("/api") !== -1;
             let b = this.form.customBackend.indexOf("127.0.0.1") !== -1;
             a ? this.$message.success(`${this.backendVersion}` + "---官方增强版后端") : b ? this.$message.success(`${this.backendVersion}` + "本地局域网自建版后端") : this.$message.success(`${this.backendVersion}` + "官方原版后端不支持vless/hysteria订阅转换");
           })
